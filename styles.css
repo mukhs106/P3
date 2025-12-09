@@ -1,0 +1,398 @@
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #FFFFFF;
+  --color-text: #000000;
+  --color-direct: #000000;
+  --color-indirect: #0C391E;
+  --color-relational: #151747;
+  --color-interior: #37154B;
+  --color-border: #e0e0e0;
+}
+
+body {
+  font-family: 'Instrument Serif', serif;
+  letter-spacing: -0.02em;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ========================================
+   NAVIGATION BAR
+   ======================================== */
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--color-bg);
+  z-index: 1000;
+}
+
+.nav-left,
+.nav-right {
+  width: 250px;
+}
+
+.nav-left {
+  text-align: left;
+}
+
+.nav-right {
+  text-align: right;
+}
+
+.nav-center {
+  text-align: center;
+  flex: 1;
+}
+
+.nav-title {
+  font-size: 16px;
+}
+
+#live-datetime {
+  font-size: 12px;
+}
+
+.info-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--color-text);
+  background: var(--color-bg);
+  font-family: 'Instrument Serif', serif;
+  font-size: 14px;
+  font-style: italic;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-button:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ========================================
+   INFO MODAL
+   ======================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  max-width: 480px;
+  padding: 40px;
+}
+
+.modal-content h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 24px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.modal-content strong {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.modal-close {
+  margin-top: 24px;
+  background: none;
+  border: 1px solid var(--color-text);
+  padding: 8px 20px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ========================================
+   CLOUD CONTAINER
+   ======================================== */
+
+.cloud-container {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* ========================================
+   IMAGE TILES
+   ======================================== */
+
+.image-tile {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.image-tile img {
+  height: 180px;
+  width: auto;
+  display: block;
+}
+
+.image-tile:hover {
+  filter: brightness(1.05);
+}
+
+.image-tile:hover:not(.selected) {
+  transform: scale(1.02);
+}
+
+.image-tile.selected {
+  z-index: 100;
+}
+
+.image-tile.faded {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.image-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--color-text);
+}
+
+.mode-square {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   FILTER PANEL
+   ======================================== */
+
+.filter-panel {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 20px 24px;
+  z-index: 500;
+  min-width: 140px;
+}
+
+.panel-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  font-weight: normal;
+}
+
+.filter-list {
+  list-style: none;
+}
+
+.filter-list li {
+  margin-bottom: 8px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  font-family: 'Instrument Serif', serif;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  padding: 4px 0;
+  width: 100%;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.filter-btn:hover {
+  opacity: 0.6;
+}
+
+.filter-btn.active {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.filter-square {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.clear-btn {
+  margin-top: 16px;
+  background: none;
+  border: none;
+  font-family: 'Instrument Serif', serif;
+  font-size: 11px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  padding: 0;
+}
+
+.clear-btn:hover {
+  opacity: 1;
+}
+
+/* ========================================
+   METADATA PANEL
+   ======================================== */
+
+.metadata-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 260px;
+  max-height: calc(100vh - 120px);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 20px 24px;
+  overflow-y: auto;
+  z-index: 500;
+  transition: color 0.2s ease;
+}
+
+.metadata-panel .image-id {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.metadata-panel .mode-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.metadata-panel .divider {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+  margin: 16px 0;
+}
+
+.metadata-panel .score-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.metadata-panel .score-label {
+  opacity: 0.7;
+}
+
+.metadata-panel .score-value {
+  opacity: 1;
+}
+
+.metadata-panel .annotation-item {
+  margin-bottom: 14px;
+}
+
+.metadata-panel .annotation-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 3px;
+}
+
+.metadata-panel .annotation-value {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.metadata-panel .notes-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+}
+
+.metadata-panel .notes-section.has-content {
+  opacity: 1;
+}
+
+.metadata-panel .notes-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+
+.metadata-panel .notes-text {
+  font-size: 12px;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ========================================
+   UTILITY
+   ======================================== */
+
+.hidden {
+  display: none !important;
+}
