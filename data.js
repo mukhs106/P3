@@ -8,7 +8,7 @@ const archiveData = [
   // ----------------------------------------
   {
     id: "IMG_001",
-    src: "images/IMG_001.jpg",
+    src: "IMG/IMG_001.jpg",
     aspect_ratio: "2:3",
     mode: "direct",
     scores: {
