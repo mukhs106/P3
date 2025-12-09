@@ -147,3 +147,192 @@ body {
   background: var(--color-text);
   color: var(--color-bg);
 }
+
+/* ========================================
+   CLOUD CONTAINER
+   ======================================== */
+
+.cloud-container {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/* ========================================
+   FILTER PANEL
+   ======================================== */
+
+.filter-panel {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: var(--color-bg);
+  border: 1px solid #e0e0e0;
+  padding: 20px 24px;
+  z-index: 500;
+  min-width: 140px;
+}
+
+.panel-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  font-weight: normal;
+}
+
+.filter-list {
+  list-style: none;
+}
+
+.filter-list li {
+  margin-bottom: 8px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  font-family: 'Instrument Serif', serif;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  padding: 4px 0;
+  width: 100%;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.filter-btn:hover {
+  opacity: 0.6;
+}
+
+.filter-btn.active {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.filter-square {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.clear-btn {
+  margin-top: 16px;
+  background: none;
+  border: none;
+  font-family: 'Instrument Serif', serif;
+  font-size: 11px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  padding: 0;
+}
+
+.clear-btn:hover {
+  opacity: 1;
+}
+
+/* ========================================
+   METADATA PANEL
+   ======================================== */
+
+.metadata-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 260px;
+  max-height: calc(100vh - 120px);
+  background: var(--color-bg);
+  border: 1px solid #e0e0e0;
+  padding: 20px 24px;
+  overflow-y: auto;
+  z-index: 500;
+  transition: color 0.2s ease;
+}
+
+.metadata-panel .image-id {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.metadata-panel .mode-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.metadata-panel .divider {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+  margin: 16px 0;
+}
+
+.metadata-panel .score-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.metadata-panel .score-label {
+  opacity: 0.7;
+}
+
+.metadata-panel .score-value {
+  opacity: 1;
+}
+
+.metadata-panel .annotation-item {
+  margin-bottom: 14px;
+}
+
+.metadata-panel .annotation-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 3px;
+}
+
+.metadata-panel .annotation-value {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.metadata-panel .notes-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+}
+
+.metadata-panel .notes-section.has-content {
+  opacity: 1;
+}
+
+.metadata-panel .notes-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+
+.metadata-panel .notes-text {
+  font-size: 12px;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.8;
+}
