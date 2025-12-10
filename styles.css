@@ -23,6 +23,7 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 /* ========================================
@@ -159,6 +160,58 @@ body {
   right: 0;
   bottom: 0;
   overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* ========================================
+   IMAGE TILES
+   ======================================== */
+
+.image-tile {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.image-tile img {
+  height: 140px;
+  width: auto;
+  display: block;
+}
+
+.image-tile:hover {
+  filter: brightness(1.05);
+}
+
+.image-tile:hover:not(.selected) {
+  transform: scale(1.02);
+}
+
+.image-tile.selected {
+  z-index: 100;
+}
+
+.image-tile.faded {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.image-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--color-text);
+}
+
+.mode-square {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
 }
 
 /* ========================================
@@ -335,4 +388,12 @@ body {
   line-height: 1.6;
   font-style: italic;
   opacity: 0.8;
+}
+
+/* ========================================
+   UTILITY
+   ======================================== */
+
+.hidden {
+  display: none !important;
 }

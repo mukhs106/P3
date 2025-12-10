@@ -3,13 +3,13 @@
 // ========================================
 
 const CONFIG = {
-  imageHeight: 180,
+  imageHeight: 140,  // Reduced from 180px for smaller images
   driftSpeed: 10000,
   cloudPadding: {
     top: 80,
-    bottom: 220,
-    left: 180,
-    right: 320
+    bottom: 200,
+    left: 170,
+    right: 300
   },
   zRange: { min: -60, max: 60 }
 };
@@ -223,11 +223,11 @@ function createImageTile(imgData, position, index) {
   img.alt = `${imgData.id} - ${imgData.mode}`;
   img.loading = 'lazy';
 
-  // Handle image load error (for missing images)
+  // Handle image load error (for missing images or unsupported formats)
   img.onerror = function() {
     // Create a placeholder colored rectangle
-    this.style.background = MODE_COLORS[imgData.mode] + '20';
-    this.style.border = `1px solid ${MODE_COLORS[imgData.mode]}40`;
+    this.style.background = MODE_COLORS[imgData.mode] + '15';
+    this.style.border = `1px solid ${MODE_COLORS[imgData.mode]}30`;
     this.style.height = CONFIG.imageHeight + 'px';
     this.style.width = getWidthFromRatio(imgData.aspect_ratio) + 'px';
   };
