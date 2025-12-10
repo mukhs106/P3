@@ -12,9 +12,9 @@
   --color-bg: #FFFFFF;
   --color-text: #000000;
   --color-direct: #000000;
-  --color-indirect: #0C391E;
-  --color-relational: #151747;
-  --color-interior: #37154B;
+  --color-indirect: #00491d;
+  --color-relational: #000470;
+  --color-interior: #470070;
 }
 
 body {
